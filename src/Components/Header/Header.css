@@ -1,0 +1,12 @@
+.header {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-puzzle-w {
+  height: 60px;
+  width: 65px;
+  margin-top: 5px;
+}
