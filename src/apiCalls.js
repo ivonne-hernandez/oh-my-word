@@ -1,4 +1,4 @@
-const apiKey = process.env.apiKey;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const fetchFiveLetterWords = () => {
   return fetch("https://wordsapiv1.p.rapidapi.com/words/?letters=5&limit=100&page=10", {
