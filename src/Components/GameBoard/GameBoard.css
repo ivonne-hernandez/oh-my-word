@@ -1,0 +1,4 @@
+.game-board {
+  display: grid;
+  grid-template-rows: 62px 62px;
+}

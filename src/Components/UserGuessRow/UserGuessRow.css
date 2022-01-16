@@ -1,0 +1,14 @@
+.typed-letter {
+  background-color: #efefef;
+  border: 1px solid black;
+  height: 35px;
+  width: 35px;
+  justify-self: center;
+  text-align: center;
+}
+
+.user-guess-container {
+  display: grid;
+  grid-template-columns: repeat(5, 62px);
+  justify-content: center;
+}
