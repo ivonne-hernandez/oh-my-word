@@ -4,18 +4,14 @@ import Keyboard from '../Keyboard/Keyboard';
 
 import '../GameBoard/GameBoard.css';
 
-const GameBoardContainer = ({ words, currentWordInPlay, typeLetter, deleteLetter }) => {
+const GameBoardContainer = ({ typeLetter, deleteLetter, currentWordInPlay }) => {
   
   return (
     currentWordInPlay !== null ?
       <div className='game-board-container'>
         <GameBoard
-          words={words}
-          currentWordInPlay={currentWordInPlay}
         />
         <Keyboard 
-          words={words}
-          currentWordInPlay={currentWordInPlay}
           typeLetter={typeLetter}
           deleteLetter={deleteLetter}
         />

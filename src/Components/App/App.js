@@ -69,7 +69,6 @@ class App extends Component {
       <main>
         <Header />
         <GameBoardContainer 
-          words={this.state.words}
           currentWordInPlay={this.state.currentWordInPlay}
           typeLetter={this.typeLetter}
           deleteLetter={this.deleteLetter}
