@@ -1,6 +1,6 @@
 import '../Keyboard/Keyboard.css';
 
-const Keyboard = ({ typeLetter, deleteLetter }) => {
+const Keyboard = ({ typeLetter, deleteLetter, enterGuess }) => {
   const createKeyboardRow = (rowOfLetters) => {
     const keyboardRow = [...rowOfLetters].map(letter => {
       return (
@@ -29,6 +29,7 @@ const Keyboard = ({ typeLetter, deleteLetter }) => {
       <div className='third-keyboard-row'>
         <button 
           className='enter-button'
+          onClick={() => enterGuess()}
         >
           Enter
         </button>
