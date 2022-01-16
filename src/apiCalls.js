@@ -1,7 +1,7 @@
 const apiKey = process.env.REACT_APP_API_KEY;
 
-const fetchFiveLetterWords = () => {
-  return fetch("https://wordsapiv1.p.rapidapi.com/words/?letters=5&limit=100&page=10", {
+const getRandomFiveLetterWord = () => {
+  return fetch("https://wordsapiv1.p.rapidapi.com/words/?letterPattern=%5E%5Ba-z%5D%7B5%7D%24&frequencyMin=4.00&random=true", {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
@@ -17,5 +17,5 @@ const fetchFiveLetterWords = () => {
 }
 
 module.exports = {
-  fetchFiveLetterWords
+  getRandomFiveLetterWord
 }
