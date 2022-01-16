@@ -1,0 +1,11 @@
+button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.letter-button, .enter-button, .delete-button {
+  text-transform: capitalize;
+}
+
+/* background-color: #808384; */
+/* color: white; */
