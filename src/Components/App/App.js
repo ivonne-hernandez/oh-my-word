@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { fetchFiveLetterWords } from '../../apiCalls';
+import Header from '../Header/Header';
+import GameBoardContainer from '../GameBoardContainer/GameBoardContainer';
 import './App.css';
 
 class App extends Component {
@@ -8,6 +10,7 @@ class App extends Component {
     this.state = {
       words: [],
       currentWordInPlay: null,
+      typedLetters: [],
       numberOfRemainingGuesses: 6,
       submittedWords: [],
       gameWon: false,
@@ -34,9 +37,44 @@ class App extends Component {
     return Math.round(Math.random() * (wordslength + 1));
   }
 
+  typeLetter = (letter) => {
+    if (this.state.typedLetters.length < 5) {
+      const updatedTypedLetters = [...this.state.typedLetters, letter];
+      this.setState({ typedLetters: updatedTypedLetters });
+    }
+  }
+
+  deleteLetter = () => {
+    const updatedTypedLetters = [...this.state.typedLetters];
+    updatedTypedLetters.pop();
+    this.setState({ typedLetters: updatedTypedLetters });
+  }
+  
+  submitGuess = (guess) => {
+    //validateGuess 
+    //this will update 
+    // numberOfRemainingGuesses: 6,
+    //   submittedWords: [],
+    //   gameWon: false,
+
+  }
+
+  endGame = () => {
+    //this will update
+      // playerStats: [],
+  }
+
   render = () => {
     return (
-      <div>Hello</div>
+      <main>
+        <Header />
+        <GameBoardContainer 
+          words={this.state.words}
+          currentWordInPlay={this.state.currentWordInPlay}
+          typeLetter={this.typeLetter}
+          deleteLetter={this.deleteLetter}
+          />
+      </main>
     )
   }
 }
