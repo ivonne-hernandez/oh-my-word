@@ -10,7 +10,6 @@ class App extends Component {
     this.state = {
       currentWordInPlay: null,
       typedLetters: [],
-      currentRow: 1,
       submittedWords: [],
       gameWon: false,
       playerStats: [],
@@ -52,7 +51,6 @@ class App extends Component {
         .then(isValid => {
           console.log(`isValid?`, isValid)
           if (isValid) {
-            const nextRow = this.state.currentRow + 1;
             const updatedSubmittedWords = [...this.state.submittedWords, guess];
             let updatedGameWon = this.state.gameWon;
             const newStatEntry = {
@@ -65,10 +63,10 @@ class App extends Component {
               updatedGameWon = true;
 
               const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
-              this.endGame(nextRow, updatedSubmittedWords, updatedPlayerStats, updatedGameWon);
+              this.endGame(updatedSubmittedWords, updatedPlayerStats, updatedGameWon);
             } else {
               const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
-              this.endGame(nextRow, updatedSubmittedWords, updatedPlayerStats, updatedGameWon)
+              this.endGame(updatedSubmittedWords, updatedPlayerStats, updatedGameWon)
             }
 
           }
@@ -77,14 +75,13 @@ class App extends Component {
     }
   }
 
-  endGame = (nextRow, updatedSubmittedWords, updatedPlayerStats, updatedGameWon) => {
+  endGame = (updatedSubmittedWords, updatedPlayerStats, updatedGameWon) => {
     if (updatedGameWon) {
       return getRandomFiveLetterWord()
         .then(data => {
             this.setState({
               currentWordInPlay: data.word,
               typedLetters: [],
-              currentRow: 1,
               submittedWords: [],
               gameWon: false,
               playerStats: updatedPlayerStats
@@ -94,7 +91,6 @@ class App extends Component {
     } else {
       this.setState({
         typedLetters: [],
-        currentRow: nextRow,
         submittedWords: updatedSubmittedWords,
         playerStats: updatedPlayerStats
       })
@@ -110,7 +106,6 @@ class App extends Component {
           typeLetter={this.typeLetter}
           deleteLetter={this.deleteLetter}
           typedLetters={this.state.typedLetters}
-          currentRow={this.state.currentRow}
           submittedWords={this.state.submittedWords}
           enterGuess={this.enterGuess}
           />
