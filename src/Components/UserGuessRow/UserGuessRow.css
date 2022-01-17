@@ -3,8 +3,15 @@
   border: 1px solid black;
   height: 62px;
   width: 62px;
-  justify-self: center;
-  text-align: center;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.past-row {
+  color: #ffffff;
 }
 
 .user-guess-row-container {
@@ -12,4 +19,16 @@
   grid-template-columns: repeat(5, 62px);
   justify-content: center;
   grid-gap: 5px;
+}
+
+.green {
+  background-color: #49d395;
+}
+
+.yellow {
+  background-color: #ffeb3b;
+}
+
+.dark-grey {
+  background-color: #3a3a3c;
 }
