@@ -1,14 +1,20 @@
 import './UserGuessRow.css';
 const UserGuessRow = ({ typedLetters, currentWordInPlay }) => {
   const getGreenLetters = (letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors) => {
-    if (currentWordInPlay.includes(letter) && letter === currentWordInPlay[letterIndex] && currentWordInPlayLetterCounts[letter] !== 0) {
+    const isLetterInWord = currentWordInPlay.includes(letter);
+    const isLetterInCorrectPlace = letter === currentWordInPlay[letterIndex];
+
+    if (isLetterInWord && isLetterInCorrectPlace && currentWordInPlayLetterCounts[letter] !== 0) {
       currentWordInPlayLetterCounts[letter] -= 1;
       typedLetterColors[letterIndex] = "green";
     } 
   }
 
   const getYellowLetters = (letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors) => {
-    if (currentWordInPlay.includes(letter) && letter !== currentWordInPlay[letterIndex] && currentWordInPlayLetterCounts[letter] !== 0) {
+    const isLetterInWord = currentWordInPlay.includes(letter);
+    const isLetterInCorrectPlace = letter === currentWordInPlay[letterIndex];
+
+    if (isLetterInWord && !isLetterInCorrectPlace && currentWordInPlayLetterCounts[letter] !== 0) {
       currentWordInPlayLetterCounts[letter] -= 1;
       typedLetterColors[letterIndex] = "yellow";
     } 
