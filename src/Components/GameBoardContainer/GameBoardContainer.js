@@ -4,7 +4,7 @@ import Keyboard from '../Keyboard/Keyboard';
 
 import '../GameBoard/GameBoard.css';
 
-const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentRow, currentWordInPlay, enterGuess, submittedWords }) => {
+const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWordInPlay, enterGuess, submittedWords }) => {
   
   return (
     currentWordInPlay !== null ?
@@ -13,7 +13,6 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentRow
           typedLetters={typedLetters}
           submittedWords={submittedWords}
           currentWordInPlay={currentWordInPlay}
-          currentRow={currentRow}
         />
         <Keyboard 
           typeLetter={typeLetter}
