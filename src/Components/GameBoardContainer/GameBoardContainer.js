@@ -2,7 +2,6 @@ import GameBoard from '../GameBoard/GameBoard';
 import Keyboard from '../Keyboard/Keyboard';
 import newGameButton from '../../assets/new-game-button.png';
 import './GameBoardContainer.css'
-//create Loading component
 
 const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWordInPlay, enterGuess, submittedWords, gameOver, error, startNewGame }) => {
   const displayNewGameButton = () => {
@@ -48,7 +47,7 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
       </div>
       :
       <div>Loading...</div>
-  );
-  
+  ); 
 }
+
 export default GameBoardContainer;
