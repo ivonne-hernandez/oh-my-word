@@ -23,14 +23,7 @@ const findWordInAPIDatabase = (word) => {
       "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
       "x-rapidapi-key": `${apiKey}`
     }
-  })
-    .then(response => {
-      if (response.statusText === "Not Found") {
-        return `Please enter a valid word.`
-      } else {
-        return response.json();
-      }
-    });
+  });
 }
 
 module.exports = {
