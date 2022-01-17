@@ -1,0 +1,46 @@
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.button {
+  text-transform: capitalize;
+  height: 58px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.letter-button {
+  width: 43px;
+}
+
+.enter-button, .delete-button {
+  width: 65px;
+}
+
+.keyboard {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-gap: 6px;
+}
+
+.letter-button.green,
+.letter-button.yellow,
+.letter-button.dark-grey {
+  color: #ffffff;
+}
+
+.green {
+  background-color: #49d395;
+}
+
+.yellow {
+  background-color: #D2E552;
+}
+
+.dark-grey {
+  background-color: #3a3a3c;
+}
