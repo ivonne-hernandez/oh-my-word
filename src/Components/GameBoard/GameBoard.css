@@ -3,4 +3,5 @@
   grid-template-rows: repeat(6, 62px);
   grid-gap: 5px;
   margin-bottom: 20px;
+  text-transform: capitalize;
 }
