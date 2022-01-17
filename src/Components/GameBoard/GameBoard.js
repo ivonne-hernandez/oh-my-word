@@ -1,7 +1,7 @@
 import UserGuessRow from '../UserGuessRow/UserGuessRow';
 import './GameBoard.css';
 
-const GameBoard = ({ typedLetters, currentWordInPlay, submittedWords, currentRow }) => {
+const GameBoard = ({ typedLetters, currentWordInPlay, submittedWords }) => {
   const generateRows = () => {
     const rows = [];
 
@@ -9,7 +9,8 @@ const GameBoard = ({ typedLetters, currentWordInPlay, submittedWords, currentRow
       return (
         <UserGuessRow 
           className='past-row'
-          typedLetters={word}
+          typedLetters={word.split('')}
+          currentWordInPlay={currentWordInPlay.split('')}
           key={index}
         />
       );
@@ -21,7 +22,6 @@ const GameBoard = ({ typedLetters, currentWordInPlay, submittedWords, currentRow
         <UserGuessRow 
           className="active-row"
           typedLetters={typedLetters}
-          currentWordInPlay={currentWordInPlay}
           key={rows.length}
         />
       );
