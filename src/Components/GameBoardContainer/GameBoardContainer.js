@@ -18,6 +18,8 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
           typeLetter={typeLetter}
           deleteLetter={deleteLetter}
           enterGuess={enterGuess}
+          submittedWords={submittedWords}
+          currentWordInPlay={currentWordInPlay}
         />
       </div>
     :

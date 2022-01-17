@@ -26,3 +26,21 @@
   justify-items: center;
   grid-gap: 6px;
 }
+
+.letter-button.green,
+.letter-button.yellow,
+.letter-button.dark-grey {
+  color: #ffffff;
+}
+
+.green {
+  background-color: #49d395;
+}
+
+.yellow {
+  background-color: #ffeb3b;
+}
+
+.dark-grey {
+  background-color: #3a3a3c;
+}
