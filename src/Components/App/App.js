@@ -8,7 +8,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      words: [],
       currentWordInPlay: null,
       typedLetters: [],
       currentRow: 1,
@@ -38,19 +37,68 @@ class App extends Component {
     updatedTypedLetters.pop();
     this.setState({ typedLetters: updatedTypedLetters });
   }
-  
-  submitGuess = (guess) => {
-    //validateGuess 
-    //this will update 
-    // numberOfRemainingGuesses: 6,
-    //   submittedWords: [],
-    //   gameWon: false,
 
+  validateGuess = (word) => {
+    return findWordInAPIDatabase(word)
+      .then(response => response.status === 200)
+      .catch(error => this.setState({ error: error.message }));
+  
+  }
+  
+  enterGuess = () => {
+    const guess = this.state.typedLetters.join('');
+    if (guess.length === 5) {
+      this.validateGuess(guess)
+        .then(isValid => {
+          console.log(`isValid?`, isValid)
+          if (isValid) {
+            const nextRow = this.state.currentRow + 1;
+            const updatedSubmittedWords = [...this.state.submittedWords, guess];
+            let updatedGameWon = this.state.gameWon;
+            const newStatEntry = {
+              word: this.state.currentWordInPlay,
+              guessedWords: updatedSubmittedWords,
+              won: updatedGameWon
+            }
+
+            if (guess === this.state.currentWordInPlay) {
+              updatedGameWon = true;
+
+              const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
+              this.endGame(nextRow, updatedSubmittedWords, updatedPlayerStats, updatedGameWon);
+            } else {
+              const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
+              this.endGame(nextRow, updatedSubmittedWords, updatedPlayerStats, updatedGameWon)
+            }
+
+          }
+
+        });
+    }
   }
 
-  endGame = () => {
-    //this will update
-      // playerStats: [],
+  endGame = (nextRow, updatedSubmittedWords, updatedPlayerStats, updatedGameWon) => {
+    if (updatedGameWon) {
+      return getRandomFiveLetterWord()
+        .then(data => {
+            this.setState({
+              currentWordInPlay: data.word,
+              typedLetters: [],
+              currentRow: 1,
+              submittedWords: [],
+              gameWon: false,
+              playerStats: updatedPlayerStats
+            })
+        })
+        .catch(error => this.setState({ error: error.message }));
+    } else {
+      this.setState({
+        typedLetters: [],
+        currentRow: nextRow,
+        submittedWords: updatedSubmittedWords,
+        playerStats: updatedPlayerStats
+      })
+    }
   }
 
   render = () => {
@@ -61,6 +109,10 @@ class App extends Component {
           currentWordInPlay={this.state.currentWordInPlay}
           typeLetter={this.typeLetter}
           deleteLetter={this.deleteLetter}
+          typedLetters={this.state.typedLetters}
+          currentRow={this.state.currentRow}
+          submittedWords={this.state.submittedWords}
+          enterGuess={this.enterGuess}
           />
       </main>
     )
