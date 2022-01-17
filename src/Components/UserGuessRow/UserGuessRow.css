@@ -1,14 +1,15 @@
 .typed-letter {
   background-color: #efefef;
   border: 1px solid black;
-  height: 35px;
-  width: 35px;
+  height: 62px;
+  width: 62px;
   justify-self: center;
   text-align: center;
 }
 
-.user-guess-container {
+.user-guess-row-container {
   display: grid;
   grid-template-columns: repeat(5, 62px);
   justify-content: center;
+  grid-gap: 5px;
 }
