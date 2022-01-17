@@ -5,7 +5,7 @@ const Keyboard = ({ typeLetter, deleteLetter, enterGuess }) => {
     const keyboardRow = [...rowOfLetters].map(letter => {
       return (
         <button
-          className='letter-button'
+          className='letter-button button'
           key={letter}
           id={letter}
           onClick={() => typeLetter(letter)}
@@ -20,22 +20,22 @@ const Keyboard = ({ typeLetter, deleteLetter, enterGuess }) => {
 
   return (
     <div className='keyboard'>
-      <div className='first-keyboard-row'>
+      <div className='keyboard-row'>
         {createKeyboardRow("qwertyuiop")}
       </div>
-      <div className='second-keyboard-row'>
+      <div className='keyboard-row'>
         {createKeyboardRow("asdfghjkl")}
       </div>
-      <div className='third-keyboard-row'>
+      <div className='keyboard-row'>
         <button 
-          className='enter-button'
+          className='enter-button button'
           onClick={() => enterGuess()}
         >
           Enter
         </button>
         {createKeyboardRow("zxcvbnm")}
         <button 
-          className='delete-button'
+          className='delete-button button'
           onClick={() => deleteLetter()}
         >
           Delete
