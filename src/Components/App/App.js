@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { fetchFiveLetterWords } from '../../apiCalls';
+import { getRandomFiveLetterWord, findWordInAPIDatabase } from '../../apiCalls';
 import Header from '../Header/Header';
 import GameBoardContainer from '../GameBoardContainer/GameBoardContainer';
 import './App.css';
@@ -11,7 +11,7 @@ class App extends Component {
       words: [],
       currentWordInPlay: null,
       typedLetters: [],
-      numberOfRemainingGuesses: 6,
+      currentRow: 1,
       submittedWords: [],
       gameWon: false,
       playerStats: [],
@@ -20,21 +20,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    return fetchFiveLetterWords()
-      .then(data => {
-        const words = data.results.data;
-        const randomIndex = this.generateRandomIndex(words.length);
-        const newWordForGame = words[randomIndex];
-
-        this.setState({ currentWordInPlay: newWordForGame });
-      })
+    return getRandomFiveLetterWord()
+      .then(data => this.setState({ currentWordInPlay: data.word }))
       .catch(error => {
-        this.setState({ error: error.message });
-      });
-  }
-
-  generateRandomIndex = (wordslength) => {
-    return Math.round(Math.random() * (wordslength + 1));
+        this.setState({ error: error.message })});
   }
 
   typeLetter = (letter) => {
