@@ -1,9 +1,13 @@
 .game-board-header {
-  height: 30px;
+  height: 50px;
   text-align: center;
 }
 
 .new-game-button-container, .new-game-button {
   height: 20px;
   cursor: pointer;
+}
+
+.correct-answer-message, .congratulations-message {
+  color: #3a3a3c;
 }
