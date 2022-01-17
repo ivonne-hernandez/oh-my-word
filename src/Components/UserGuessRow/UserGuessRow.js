@@ -1,21 +1,40 @@
 import './UserGuessRow.css';
 const UserGuessRow = ({ typedLetters, currentWordInPlay }) => {
-  const getLetterClass = (letter, letterIndex) => {
-    if (currentWordInPlay.includes(letter) && letter === currentWordInPlay[letterIndex]) {
-      return "green";
-    } else if (currentWordInPlay.includes(letter) && letter !== currentWordInPlay[letterIndex]) {
-      return "yellow";
-    } else if (!currentWordInPlay.includes(letter)) {
-      return "dark-grey";
-    }
+  const getGreenLetters = (letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors) => {
+    if (currentWordInPlay.includes(letter) && letter === currentWordInPlay[letterIndex] && currentWordInPlayLetterCounts[letter] !== 0) {
+      currentWordInPlayLetterCounts[letter] -= 1;
+      typedLetterColors[letterIndex] = "green";
+    } 
+  }
+
+  const getYellowLetters = (letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors) => {
+    if (currentWordInPlay.includes(letter) && letter !== currentWordInPlay[letterIndex] && currentWordInPlayLetterCounts[letter] !== 0) {
+      currentWordInPlayLetterCounts[letter] -= 1;
+      typedLetterColors[letterIndex] = "yellow";
+    } 
   }
 
   const generateLetterTiles = () => {
+    const currentWordInPlayLetterCounts = {};
+    const typedLetterColors = ["dark-grey", "dark-grey", "dark-grey", "dark-grey", "dark-grey"];
+
+    if (currentWordInPlay) {
+      currentWordInPlay.forEach(letter => {
+        if (!currentWordInPlayLetterCounts[letter]) {
+          currentWordInPlayLetterCounts[letter] = 0;
+        }
+        currentWordInPlayLetterCounts[letter] += 1;
+      });
+  
+      typedLetters.forEach((letter, letterIndex) => getGreenLetters(letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors));
+      typedLetters.forEach((letter, letterIndex) => getYellowLetters(letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors));
+    }
+    
     const letterTiles = typedLetters.map((letter, letterIndex) => {
       let letterClass = "typed-letter";
 
       if (currentWordInPlay) {
-        letterClass = letterClass + " past-row " + getLetterClass(letter, letterIndex);
+        letterClass = letterClass + " past-row " + typedLetterColors[letterIndex]
       }
 
       return (
