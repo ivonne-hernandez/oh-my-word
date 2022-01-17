@@ -1,4 +1,4 @@
-.header {
+.header-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6,11 +6,25 @@
   margin-top: 5px;
   margin-bottom: 20px;
   border-bottom: 1px solid #3a3a3c;
-  font-size: 36px;
 }
 
 .header-puzzle-w {
   height: 60px;
   width: 65px;
-  /* margin-top: 5px; */
+}
+
+.question-mark-icon, .player-stats-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.header-text {
+  color: #3a3a3c;
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+}
+
+.question-mark-icon, .app-name-container {
+  margin-right: 22px;
 }
