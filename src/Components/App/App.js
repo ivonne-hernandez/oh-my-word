@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { getRandomFiveLetterWord, findWordInAPIDatabase } from '../../apiCalls';
 import Header from '../Header/Header';
 import GameBoardContainer from '../GameBoardContainer/GameBoardContainer';
-import NotFound from '../../NotFound/NotFound';
+import NotFound from '../NotFound/NotFound';
 import './App.css';
 
 class App extends Component {
