@@ -22,7 +22,8 @@ describe('Oh my word homepage test', () => {
       .get('button[id="r"]').click()
       .get('button[id="delete-button"]').click()
       .get('main[class="game-board"]')
-      .contains("b");
+      .contains("b")
+      .contains("r").should("not.exist");
   });
 
   it("As a user, when I've typed in a valid 5 letter word and press enter I should see that the game board tiles and keyboard keys have now changed color", () => {
@@ -90,20 +91,44 @@ describe('Oh my word homepage test', () => {
       fixture: 'tiles_valid_in_api.json'
     });
 
-    cy.get('button[id="b"]').click().get('button[id="r"]').click().get('button[id="o"]').click().get('button[id="w"]').click().get('button[id="n"]').click()
-      .get('button[id="enter-button"]').click()
-    cy.get('button[id="t"]').click().get('button[id="i"]').click().get('button[id="l"]').click().get('button[id="e"]').click().get('button[id="s"]').click()
-      .get('button[id="enter-button"]').click()
-    cy.get('button[id="s"]').click().get('button[id="t"]').click().get('button[id="i"]').click().get('button[id="n"]').click().get('button[id="k"]').click()
-      .get('button[id="enter-button"]').click()
-    cy.get('button[id="c"]').click().get('button[id="r"]').click().get('button[id="e"]').click().get('button[id="e"]').click().get('button[id="p"]').click()
-      .get('button[id="enter-button"]').click()
-    cy.get('button[id="s"]').click().get('button[id="m"]').click().get('button[id="e"]').click().get('button[id="l"]').click().get('button[id="l"]').click()
-      .get('button[id="enter-button"]').click() 
-    cy.get('button[id="r"]').click().get('button[id="o"]').click().get('button[id="s"]').click().get('button[id="e"]').click().get('button[id="s"]').click()
-      .get('button[id="enter-button"]').click() 
+    cy.get('button[id="b"]').click()
+      .get('button[id="r"]').click()
+      .get('button[id="o"]').click()
+      .get('button[id="w"]').click()
+      .get('button[id="n"]').click()
+      .get('button[id="enter-button"]').click();
+    cy.get('button[id="t"]').click()
+      .get('button[id="i"]').click()
+      .get('button[id="l"]').click()
+      .get('button[id="e"]').click()
+      .get('button[id="s"]').click()
+      .get('button[id="enter-button"]').click();
+    cy.get('button[id="s"]').click()
+      .get('button[id="t"]').click()
+      .get('button[id="i"]').click()
+      .get('button[id="n"]').click()
+      .get('button[id="k"]').click()
+      .get('button[id="enter-button"]').click();
+    cy.get('button[id="c"]').click()
+      .get('button[id="r"]').click()
+      .get('button[id="e"]').click()
+      .get('button[id="e"]').click()
+      .get('button[id="p"]').click()
+      .get('button[id="enter-button"]').click();
+    cy.get('button[id="s"]').click()
+      .get('button[id="m"]').click()
+      .get('button[id="e"]').click()
+      .get('button[id="l"]').click()
+      .get('button[id="l"]').click()
+      .get('button[id="enter-button"]').click(); 
+    cy.get('button[id="r"]').click()
+      .get('button[id="o"]').click()
+      .get('button[id="s"]').click()
+      .get('button[id="e"]').click()
+      .get('button[id="s"]').click()
+      .get('button[id="enter-button"]').click();
 
-      .get('article[class="typed-letter past-row green"]')
+    cy.get('article[class="typed-letter past-row green"]')
       .should('have.length', 4)
       .get('button[class="letter-button button green"]')
       .should('have.length', 3)
@@ -114,9 +139,9 @@ describe('Oh my word homepage test', () => {
       .get('article[class="typed-letter past-row dark-grey"]')
       .should('have.length', 19)
       .get('button[class="letter-button button dark-grey"]')
-      .should('have.length', 10)
+      .should('have.length', 10);
 
-      .get('p[class="correct-answer-message"]')
+    cy.get('p[class="correct-answer-message"]')
       .contains("WORD: SOLAR")
       .get('img[class="new-game-button"]')
       .should('have.length', 1);
@@ -139,9 +164,17 @@ describe('Oh my word homepage test', () => {
       .should('have.length', 30)
       .get('div[class="keyboard"]')
       .get('button[class="letter-button button "]')
-      .should('have.length', 26)
+      .should('have.length', 26);
 
-      cy.get('button[id="r"]').click().get('button[id="o"]').click().get('button[id="s"]').click().get('button[id="e"]').click().get('button[id="s"]').click()
+    cy.get('article[class="dark-grey"]').should('not.exist');
+    cy.get('article[class="yellow"]').should('not.exist');
+    cy.get('article[class="green"]').should('not.exist');
+
+    cy.get('button[id="r"]').click()
+      .get('button[id="o"]').click()
+      .get('button[id="s"]').click()
+      .get('button[id="e"]').click()
+      .get('button[id="s"]').click()
       .get('button[id="enter-button"]').click()
       .get('article[class="typed-letter past-row green"]')
       .should('have.length', 1)
