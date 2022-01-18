@@ -1,4 +1,4 @@
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import UserGuessRow from '../UserGuessRow/UserGuessRow';
 import './GameBoard.css';
 
