@@ -7,7 +7,7 @@
   text-transform: capitalize;
   height: 58px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   margin-left: 3px;
   margin-right: 3px;
 }
@@ -25,6 +25,7 @@
   justify-content: center;
   justify-items: center;
   grid-gap: 6px;
+  padding-bottom: 16px;
 }
 
 .letter-button.green,
@@ -43,4 +44,34 @@
 
 .dark-grey {
   background-color: #3a3a3c;
+}
+
+@media (max-width: 500px) {
+  .letter-button {
+    width: 34px;
+  }
+  
+  .enter-button, .delete-button {
+    width: 52px;
+    font-size: 12px;
+    padding: 0px;
+  }
+
+  .button {
+    height: 46px;
+  }
+}
+
+@media (max-width: 410px) {
+  .letter-button {
+    width: 31px;
+  }
+  
+  .enter-button, .delete-button {
+    width: 47px;
+  }
+
+  .button {
+    height: 41px;
+  }
 }
