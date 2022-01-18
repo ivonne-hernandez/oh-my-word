@@ -28,7 +28,6 @@ const Keyboard = ({ typeLetter, deleteLetter, enterGuess, submittedWords, curren
   
   const createKeyboardRow = (rowOfLetters) => {
     const keyboardRow = [...rowOfLetters].map(letter => {
-      
       return (
         <button
           className={`letter-button button ${keyColors[letter]}`}
