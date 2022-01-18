@@ -1,4 +1,5 @@
 import './UserGuessRow.css';
+
 const UserGuessRow = ({ typedLetters, currentWordInPlay }) => {
   const getGreenLetters = (letter, letterIndex, currentWordInPlayLetterCounts, typedLetterColors) => {
     const isLetterInWord = currentWordInPlay.includes(letter);

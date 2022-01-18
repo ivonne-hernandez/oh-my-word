@@ -13,6 +13,10 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
           alt="new game button"
           onClick={() => startNewGame()}
         />
+        {!submittedWords.includes(currentWordInPlay) ? 
+            <p className="correct-answer-message">WORD: {currentWordInPlay.toUpperCase()}</p>
+          : <p className="congratulations-message">CORRECT!</p>
+        }
       </div>
     );
   }
