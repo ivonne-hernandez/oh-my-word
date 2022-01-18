@@ -1,3 +1,4 @@
+import PropTypes, { func } from 'prop-types';
 import GameBoard from '../GameBoard/GameBoard';
 import Keyboard from '../Keyboard/Keyboard';
 import newGameButton from '../../assets/new-game-button.png';
@@ -55,3 +56,15 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
 }
 
 export default GameBoardContainer;
+
+GameBoardContainer.propTypes = {
+  typeLetter: PropTypes.func.isRequired,
+  deleteLetter: PropTypes.func.isRequired, 
+  typedLetters: PropTypes.array.isRequired, 
+  currentWordInPlay: PropTypes.string, 
+  enterGuess: PropTypes.func.isRequired, 
+  submittedWords: PropTypes.array.isRequired, 
+  gameOver: PropTypes.bool.isRequired, 
+  error: PropTypes.string, 
+  startNewGame: PropTypes.func.isRequired
+};

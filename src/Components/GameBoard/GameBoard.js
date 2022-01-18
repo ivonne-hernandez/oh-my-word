@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import UserGuessRow from '../UserGuessRow/UserGuessRow';
 import './GameBoard.css';
 
-const GameBoard = ({ typedLetters, currentWordInPlay, submittedWords }) => {
+const GameBoard = ({ typedLetters, submittedWords, currentWordInPlay }) => {
   const generateRows = () => {
     const rows = [];
 
@@ -52,3 +53,9 @@ const GameBoard = ({ typedLetters, currentWordInPlay, submittedWords }) => {
 }
 
 export default GameBoard;
+
+GameBoard.propTypes = {
+  typedLetters: PropTypes.array.isRequired, 
+  submittedWords: PropTypes.array.isRequired,
+  currentWordInPlay: PropTypes.string
+};
