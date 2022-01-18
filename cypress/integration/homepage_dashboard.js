@@ -11,6 +11,18 @@ describe('Oh my word homepage test', () => {
     cy.visit('http://localhost:3000');
   });
 
+  it("As a user, when I click on the puzzle piece of the header I should be navigated to the homepage", () => {
+    cy.get('img[class="header-puzzle-w"]')
+      .click()
+      .url().should('eq', 'http://localhost:3000/')
+  })
+
+  it("As a user, when I click on the question mark icon in the header I should be navigated to the How To Play page", () => {
+    cy.get('img[class="question-mark-icon"]')
+      .click()
+      .url().should('eq', 'http://localhost:3000/how-to-play')
+  })
+
   it("As a user, when I click on a letter on the keyboard I should see it displayed on the game board", () => {
     cy.get('button[id="b"]').click()
       .get('article[class="typed-letter"]')
