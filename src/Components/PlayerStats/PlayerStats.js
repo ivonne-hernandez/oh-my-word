@@ -11,17 +11,22 @@ const PlayerStats = ({ playerStats }) => {
       return "L";
     }
   });
+  const winStreaks = winsAndLossesForAllGames.join('').split('L').filter(str => str.includes('W'));
 
   const calculateMaxStreak = () => {
-    const winStreaks = winsAndLossesForAllGames.join('').split('L').filter(str => str.includes("W"));
     const winLengths = winStreaks.map(streak => streak.length);
     const maxWinStreak = Math.max(...winLengths, 0);
     return maxWinStreak;
   }
 
   const calculateCurrentStreak = () => {
-    //for the current streak, you'll want the last w's
-
+    if (winsAndLossesForAllGames[winsAndLossesForAllGames.length - 1] === "W") {
+      const currentStreak = winsAndLossesForAllGames.reverse().join('').split('L')
+        .filter(str => str.includes('W'));
+      return currentStreak[0].length;
+    } else {
+      return 0;
+    }
   }
 
   return (
@@ -53,4 +58,4 @@ export default PlayerStats;
 
 PlayerStats.propTypes = {
   playerStats: PropTypes.array.isRequired
-}
+};
