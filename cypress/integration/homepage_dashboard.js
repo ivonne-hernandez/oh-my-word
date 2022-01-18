@@ -31,7 +31,7 @@ describe('Oh my word homepage test', () => {
       .contains("b")
   })
 
-  it("As a user, when I've typed in a valid 5 letter word and press enter I should see that the squares have now changed color", () => {
+  it("As a user, when I've typed in a valid 5 letter word and press enter I should see that the game board tiles and keyboard keys have now changed color", () => {
     cy.get('div[class="keyboard"]')
     .get('button[id="b"]')
     .click()
@@ -51,6 +51,11 @@ describe('Oh my word homepage test', () => {
     .should('have.length', 2)
     .get('article[class="typed-letter past-row dark-grey"]')
     .should('have.length', 3)
+    .get('div[class="keyboard"]')
+    .get('button[class="letter-button button dark-grey"]')
+    .should('have.length', 3)
+    .get('button[class="letter-button button yellow"]')
+    .should('have.length', 2)
   }) 
 
   it("As a user, when I've typed in an invalid 5 letter word and press enter I should see a message that tells me that the word is not in the list", () => {
@@ -71,10 +76,35 @@ describe('Oh my word homepage test', () => {
     .contains("NOT IN WORD LIST.")
   }) 
 
+  it("As a user, when I've guessed the correct answer, I should see that the game board tiles and keyboard keys are green, a message that tells me that I was correct and a restart game button", () => {
+    cy.get('div[class="keyboard"]')
+    .get('button[id="s"]')
+    .click()
+    .get('button[id="o"]')
+    .click()
+    .get('button[id="l"]')
+    .click()
+    .get('button[id="a"]')
+    .click()
+    .get('button[id="r"]')
+    .click()
+    .get('button[id="enter-button"]')
+    .click()
+    .get('article[class="typed-letter past-row green"]')
+    .should('have.length', 5)
+    .get('button[class="letter-button button green"]')
+    .should('have.length', 5)
+    .get('p[class="congratulations-message"]')
+    .contains("CORRECT!")
+    .get('img[class="new-game-button"]')
+    .should('have.length', 1)
+  })
 
 
-// it("As a user, when I've guessed the correct answer, I should see a message that tells me that I was correct and a restart game button")
-// it("As a user, when I haven't guessed the correct answer in 6 tries, I should see a message that shows me the correct word and a restart game button")
+it("As a user, when I haven't guessed the correct answer in 6 tries, I should see a message that shows me the correct word and a restart game button")
+//clicking on the restart game button starts a new game
+//adding another word means that you are on the next row => need a new fixture and cy.intercept for /word endpoint
+
 });
 
 
