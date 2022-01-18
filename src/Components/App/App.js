@@ -4,6 +4,7 @@ import { getRandomFiveLetterWord, findWordInAPIDatabase } from '../../apiCalls';
 import Header from '../Header/Header';
 import GameBoardContainer from '../GameBoardContainer/GameBoardContainer';
 import NotFound from '../NotFound/NotFound';
+import HowToPlay from '../HowToPlay/HowToPlay';
 import './App.css';
 
 class App extends Component {
@@ -104,7 +105,7 @@ class App extends Component {
               startNewGame={this.startNewGame}
             />
           }/>
-          <Route path="/how-to-play" element={ <p>How to play</p> }/>
+          <Route path="/how-to-play" element={ <HowToPlay /> }/>
           <Route path="/player-stats" element={  <p>Player Stats</p> }/>
           <Route path="*" element={ <NotFound /> }/>
         </Routes>

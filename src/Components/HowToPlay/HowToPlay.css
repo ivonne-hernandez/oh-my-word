@@ -1,0 +1,34 @@
+.content-container {
+  color: #3a3a3c;
+  width: 480px;
+  margin: auto;
+}
+
+.how-to-play-header, .examples-header {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #3a3a3c;
+  margin-bottom: 1rem;
+}
+
+.examples-header {
+  text-align: start;
+  margin-top: 1rem;
+}
+
+.instructions-text {
+  margin-bottom: 1rem;
+}
+
+.tile-image {
+  height: 40px;
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
