@@ -19,12 +19,15 @@ const Header = ()=> {
       </div>
       <div className="app-name-container">
         <h1 className="header-text">
-          OH MY  
-          <img className="header-puzzle-w"
-            src={puzzle}
-            onClick={() => navigate("/")}
-          />
-          ORD!
+          <div className="header-oh-my-container">OH MY</div>
+          <div className="header-word-container">
+            <img className="header-puzzle-w"
+              src={puzzle}
+              onClick={() => navigate("/")}
+            />
+            ORD!
+          </div>
+          
         </h1>
       </div>
       <div className="player-stats-icon-container">
