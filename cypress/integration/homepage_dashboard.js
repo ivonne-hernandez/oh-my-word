@@ -53,10 +53,26 @@ describe('Oh my word homepage test', () => {
     .should('have.length', 3)
   }) 
 
+  it("As a user, when I've typed in an invalid 5 letter word and press enter I should see a message that tells me that the word is not in the list", () => {
+    cy.get('div[class="keyboard"]')
+    .get('button[id="b"]')
+    .click()
+    .get('button[id="o"]')
+    .click()
+    .get('button[id="o"]')
+    .click()
+    .get('button[id="w"]')
+    .click()
+    .get('button[id="n"]')
+    .click()
+    .get('button[id="enter-button"]')
+    .click()
+    .get('p[class="error-message"]')
+    .contains("NOT IN WORD LIST.")
+  }) 
 
 
 
-// it("As a user, when I've typed in an invalid 5 letter word and press enter I should see a message that tells me that the word is not in the list") 
 // it("As a user, when I've guessed the correct answer, I should see a message that tells me that I was correct and a restart game button")
 // it("As a user, when I haven't guessed the correct answer in 6 tries, I should see a message that shows me the correct word and a restart game button")
 });
