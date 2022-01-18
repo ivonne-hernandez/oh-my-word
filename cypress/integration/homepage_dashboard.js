@@ -14,14 +14,23 @@ describe('Oh my word homepage test', () => {
   it("As a user, when I click on the puzzle piece of the header I should be navigated to the homepage", () => {
     cy.get('img[class="header-puzzle-w"]')
       .click()
-      .url().should('eq', 'http://localhost:3000/')
-  })
+      .url().should('eq', 'http://localhost:3000/');
+  });
 
   it("As a user, when I click on the question mark icon in the header I should be navigated to the How To Play page", () => {
     cy.get('img[class="question-mark-icon"]')
       .click()
-      .url().should('eq', 'http://localhost:3000/how-to-play')
-  })
+      .url().should('eq', 'http://localhost:3000/how-to-play');
+  });
+  
+  it("As a user, when I visit a route that is invalid I should see a 404 not found message and instructions on how to go back to the homepage", () => {
+    cy.visit('http://localhost:3000/u')
+      .get('p[class="page-not-found-message"]')
+      .should('have.text', '404: Page was not found.')
+      .get('p[class="click-on-puzzle-message"]')
+      .should('have.text', 'Click on the puzzle piece to navigate back to the homepage.')
+      
+  });
 
   it("As a user, when I click on a letter on the keyboard I should see it displayed on the game board", () => {
     cy.get('button[id="b"]').click()
