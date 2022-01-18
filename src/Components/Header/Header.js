@@ -27,7 +27,6 @@ const Header = ()=> {
             />
             ORD!
           </div>
-          
         </h1>
       </div>
       <div className="player-stats-icon-container">
