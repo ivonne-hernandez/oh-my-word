@@ -109,7 +109,7 @@ class App extends Component {
           <Route path="*" element={ <NotFound /> }/>
         </Routes>
       </main>
-    )
+    );
   }
 }
 
