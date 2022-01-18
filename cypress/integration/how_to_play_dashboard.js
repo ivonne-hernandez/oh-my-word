@@ -17,5 +17,4 @@ describe('Oh my word\'s "How to play" dashboard test', () => {
       .get('img[class="dark-grey-letter tile-image"]')
       .should('have.length', 1)
   });
-
 });

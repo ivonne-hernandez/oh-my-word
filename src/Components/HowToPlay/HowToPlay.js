@@ -1,7 +1,7 @@
-import './HowToPlay.css';
 import greenLetter from '../../assets/green-letter.png';
 import yellowLetter from '../../assets/yellow-letter.png';
 import darkGreyLetter from '../../assets/dark-grey-letter.png';
+import './HowToPlay.css';
 
 const HowToPlay = () => {
   return (
