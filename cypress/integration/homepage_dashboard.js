@@ -73,22 +73,22 @@ describe('Oh my word homepage test', () => {
       .should('have.length', 1);
   });
 
-  it.only("As a user, when I haven't guessed the correct answer in 6 tries, I should see all of the game board tiles and keyboard keys with the correct colors, a message that shows me the correct word and a restart game button", () => {
+  it("As a user, when I haven't guessed the correct answer in 6 tries, I should see all of the game board tiles and keyboard keys with the correct colors, a message that shows me the correct word and a restart game button", () => {
     cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/tiles', {
       fixture: 'tiles_valid_in_api.json'
-    })
+    });
     cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/stink', {
       fixture: 'tiles_valid_in_api.json'
-    })
+    });
     cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/creep', {
       fixture: 'tiles_valid_in_api.json'
-    })
+    });
     cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/smell', {
       fixture: 'tiles_valid_in_api.json'
-    })
+    });
     cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/roses', {
       fixture: 'tiles_valid_in_api.json'
-    })
+    });
 
     cy.get('button[id="b"]').click().get('button[id="r"]').click().get('button[id="o"]').click().get('button[id="w"]').click().get('button[id="n"]').click()
       .get('button[id="enter-button"]').click()
@@ -122,8 +122,40 @@ describe('Oh my word homepage test', () => {
       .should('have.length', 1);
   });
 
-  
-//clicking on the restart game button starts a new game
+  it("As a user, when I click on the restart game button the board will clear out and I will be able to enter a new guess for the new word", () => {
+    cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/roses', {
+      fixture: 'tiles_valid_in_api.json'
+    });
+
+    cy.get('button[id="s"]').click()
+      .get('button[id="o"]').click()
+      .get('button[id="l"]').click()
+      .get('button[id="a"]').click()
+      .get('button[id="r"]').click()
+      .get('button[id="enter-button"]').click()
+      .get('img[class="new-game-button"]').click()
+      .get('main[class="game-board"]')
+      .get('article[class="typed-letter"]')
+      .should('have.length', 30)
+      .get('div[class="keyboard"]')
+      .get('button[class="letter-button button "]')
+      .should('have.length', 26)
+
+      cy.get('button[id="r"]').click().get('button[id="o"]').click().get('button[id="s"]').click().get('button[id="e"]').click().get('button[id="s"]').click()
+      .get('button[id="enter-button"]').click()
+      .get('article[class="typed-letter past-row green"]')
+      .should('have.length', 1)
+      .get('button[class="letter-button button green"]')
+      .should('have.length', 1)
+      .get('article[class="typed-letter past-row yellow"]')
+      .should('have.length', 2)
+      .get('button[class="letter-button button yellow"]')
+      .should('have.length', 2)
+      .get('article[class="typed-letter past-row dark-grey"]')
+      .should('have.length', 2)
+      .get('button[class="letter-button button dark-grey"]')
+      .should('have.length', 1);
+  });
 
 });
 
