@@ -6,6 +6,13 @@
   margin-top: 5px;
   margin-bottom: 20px;
   border-bottom: 1px solid #3a3a3c;
+  width: 100%;
+}
+
+.header-word-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .header-puzzle-w {
@@ -15,6 +22,7 @@
 
 .header-puzzle-w:hover, .question-mark-icon:hover, .player-stats-icon:hover {
   transform: scale(1.05);
+  cursor: pointer;
 }
 
 .question-mark-icon, .player-stats-icon {
@@ -31,4 +39,15 @@
 
 .question-mark-icon, .app-name-container {
   margin-right: 22px;
+}
+
+@media (max-width: 500px) {
+  .header-text {
+    flex-direction: column;
+  }
+
+  .question-mark-icon, .player-stats-icon {
+    height: 50px;
+    width: 50px;
+  }
 }
