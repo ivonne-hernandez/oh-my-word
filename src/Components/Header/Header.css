@@ -13,6 +13,10 @@
   width: 65px;
 }
 
+.header-puzzle-w:hover, .question-mark-icon:hover, .player-stats-icon:hover {
+  transform: scale(1.05);
+}
+
 .question-mark-icon, .player-stats-icon {
   height: 30px;
   width: 30px;
