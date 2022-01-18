@@ -1,3 +1,4 @@
+import PropTypes, { func } from 'prop-types';
 import '../Keyboard/Keyboard.css';
 
 const Keyboard = ({ typeLetter, deleteLetter, enterGuess, submittedWords, currentWordInPlay }) => {
@@ -73,3 +74,11 @@ const Keyboard = ({ typeLetter, deleteLetter, enterGuess, submittedWords, curren
 }
 
 export default Keyboard;
+
+Keyboard.propTypes = {
+  typeLetter: PropTypes.func.isRequired, 
+  deleteLetter: PropTypes.func.isRequired,
+  enterGuess: PropTypes.func.isRequired,
+  submittedWords: PropTypes.array.isRequired,
+  currentWordInPlay: PropTypes.string
+};
