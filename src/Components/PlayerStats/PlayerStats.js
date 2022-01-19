@@ -34,19 +34,27 @@ const PlayerStats = ({ playerStats }) => {
       <div className='player-stats-header'>STATISTICS</div>
       <div className='statistics-content-container'>
         <div className='statistic-container'>
-          <div className='statistic'>{playerStats.length ? playerStats.length : 0}</div>
+          <div className='statistic games-played'>
+            {playerStats.length ? playerStats.length : 0}
+          </div>
           <div className='statistic-label'>Played</div>
         </div>
         <div className='statistic-container'>
-          <div className='statistic'>{playerStats.length ? averageWinPercentage : 0}</div>
+          <div className='statistic win-percentage'>
+            {playerStats.length ? averageWinPercentage : 0}
+          </div>
           <div className='statistic-label'>Win %</div>
         </div>
         <div className='statistic-container'>
-          <div className='statistic'>{playerStats.length ? calculateCurrentStreak() : 0}</div>
+          <div className='statistic current-streak'>
+            {playerStats.length ? calculateCurrentStreak() : 0}
+          </div>
           <div className='statistic-label'>Current Streak</div>
         </div>
         <div className='statistic-container'>
-          <div className='statistic'>{playerStats.length ? calculateMaxStreak() : 0}</div>
+          <div className='statistic max-streak'>
+            {playerStats.length ? calculateMaxStreak() : 0}
+          </div>
           <div className='statistic-label'>Max Streak</div>
         </div>
       </div>
