@@ -9,7 +9,7 @@
 - `cd oh-my-word`
 - `npm install`
 - `touch .env`
-- In the .env file add `REACT_APP_API_KEY=` and paste in your API key from the the [WordsAPI](https://rapidapi.com/dpventures/api/wordsapi)
+- In the .env file add `REACT_APP_API_KEY=` and paste in your API key from the [WordsAPI](https://rapidapi.com/dpventures/api/wordsapi)
 - `npm start` to start the app on localhost:3000
 
 ## Technologies
