@@ -1,0 +1,48 @@
+.player-stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #3a3a3c;
+  width: 480px;
+  margin: auto;
+}
+
+.player-stats-header {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #3a3a3c;
+  margin-bottom: 1rem;
+}
+
+.statistic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.statistic-label {
+  font-size: 16px;
+  text-align: center;
+}
+
+.statistic-container {
+  margin: 10px;
+}
+
+.statistics-content-container {
+  display: flex;
+}
+
+@media (max-width: 480px) {
+  .player-stats-container {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
