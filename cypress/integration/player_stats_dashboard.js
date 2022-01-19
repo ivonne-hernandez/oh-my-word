@@ -7,7 +7,7 @@ describe('Oh my word player stats dashboard test', () => {
     cy.visit('http://localhost:3000');
   });
 
-  it("As a user, when I visit the player stats page for the first time I should that all of my stats are at 0", () => {
+  it("As a user, when I visit the player stats page for the first time I should see that all of my stats are at zero", () => {
     cy.visit('http://localhost:3000/player-stats')
       .get('div[class="statistic games-played"]')
       .should('have.text', 0)
