@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import GameBoardContainer from '../GameBoardContainer/GameBoardContainer';
 import NotFound from '../NotFound/NotFound';
 import HowToPlay from '../HowToPlay/HowToPlay';
+import PlayerStats from '../PlayerStats/PlayerStats';
 import './App.css';
 
 class App extends Component {
@@ -106,7 +107,7 @@ class App extends Component {
             />
           }/>
           <Route path="/how-to-play" element={ <HowToPlay /> }/>
-          <Route path="/player-stats" element={  <p>Player Stats</p> }/>
+          <Route path="/player-stats" element={ <PlayerStats playerStats={this.state.playerStats}/> }/>
           <Route path="*" element={ <NotFound /> }/>
         </Routes>
       </main>
