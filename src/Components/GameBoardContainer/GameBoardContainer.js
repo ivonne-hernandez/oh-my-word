@@ -1,11 +1,11 @@
 import PropTypes, { func } from 'prop-types';
 import GameBoard from '../GameBoard/GameBoard';
 import Keyboard from '../Keyboard/Keyboard';
+import Loading from '../Loading/Loading';
 import newGameButton from '../../assets/new-game-button.png';
-import loading from '../../assets/loading-icon.png';
 import './GameBoardContainer.css'
 
-const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWordInPlay, enterGuess, submittedWords, gameOver, error, startNewGame }) => {
+const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWordInPlay, enterGuess, submittedWords, gameOver, error, startNewGame, isLoading }) => {
   const displayNewGameButton = () => {
     return (
       <div className='new-game-button-container'>
@@ -32,7 +32,7 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
   }
 
   return (
-    currentWordInPlay !== null ?
+    isLoading ? <Loading /> :
       <div className='game-board-container'>
         <div className='game-board-header'>
           {error ? displayErrorMessage() : null}
@@ -51,14 +51,6 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
           currentWordInPlay={currentWordInPlay}
         />
       </div>
-      :
-      <div className='loading-container'>
-        <img 
-          className='loading-image'
-          src={loading}
-          alt='loading'
-        />
-      </div>
   ); 
 }
 
@@ -73,5 +65,6 @@ GameBoardContainer.propTypes = {
   submittedWords: PropTypes.array.isRequired, 
   gameOver: PropTypes.bool.isRequired, 
   error: PropTypes.string, 
-  startNewGame: PropTypes.func.isRequired
+  startNewGame: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
