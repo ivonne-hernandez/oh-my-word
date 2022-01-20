@@ -2,6 +2,7 @@ import PropTypes, { func } from 'prop-types';
 import GameBoard from '../GameBoard/GameBoard';
 import Keyboard from '../Keyboard/Keyboard';
 import newGameButton from '../../assets/new-game-button.png';
+import loading from '../../assets/loading-icon.png';
 import './GameBoardContainer.css'
 
 const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWordInPlay, enterGuess, submittedWords, gameOver, error, startNewGame }) => {
@@ -51,7 +52,13 @@ const GameBoardContainer = ({ typeLetter, deleteLetter, typedLetters, currentWor
         />
       </div>
       :
-      <div>Loading...</div>
+      <div className='loading-container'>
+        <img 
+          className='loading-image'
+          src={loading}
+          alt='loading'
+        />
+      </div>
   ); 
 }
 
