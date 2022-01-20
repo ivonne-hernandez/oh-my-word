@@ -57,10 +57,17 @@ class App extends Component {
         .then(isValid => {
           if (isValid) {
             const updatedSubmittedWords = [...this.state.submittedWords, guess];
+            const newStatEntry = {
+              word: this.state.currentWordInPlay,
+              guessedWords: updatedSubmittedWords
+            }
+            const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
+
             this.setState({ 
               gameOver: guess === this.state.currentWordInPlay || updatedSubmittedWords.length === 6, 
               submittedWords: updatedSubmittedWords, 
-              typedLetters: [] 
+              typedLetters: [],
+              playerStats: guess === this.state.currentWordInPlay || updatedSubmittedWords.length === 6 ? updatedPlayerStats : this.state.playerStats
             });
           } else if (!isValid) {
             this.setState({ error: `NOT IN WORD LIST.` });
@@ -70,19 +77,13 @@ class App extends Component {
   }
 
   startNewGame = () => {
-    const newStatEntry = {
-      word: this.state.currentWordInPlay,
-      guessedWords: [...this.state.submittedWords]
-    }
-    const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
     return getRandomFiveLetterWord()
       .then(data => {
         this.setState({
           currentWordInPlay: data.word,
           typedLetters: [],
           submittedWords: [],
-          gameOver: false,
-          playerStats: updatedPlayerStats
+          gameOver: false
         })
       })
       .catch(error => this.setState({ error: error.message }));
