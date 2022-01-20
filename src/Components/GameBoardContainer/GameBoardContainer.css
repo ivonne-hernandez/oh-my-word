@@ -21,7 +21,6 @@
   width: 60px;
   animation: rotate-s-loader 1s linear infinite;
   margin: 6rem auto;
-  border-radius: 50%;
 }
 
 @keyframes rotate-s-loader {
