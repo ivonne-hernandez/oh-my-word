@@ -17,13 +17,14 @@ class App extends Component {
       submittedWords: [],
       gameOver: false,
       playerStats: [],
-      error: null
+      error: null,
+      isLoading: true
     }
   }
 
   componentDidMount = () => {
     return getRandomFiveLetterWord()
-      .then(data => this.setState({ currentWordInPlay: data.word }))
+      .then(data => this.setState({ currentWordInPlay: data.word, isLoading: false }))
       .catch(error => {
         this.setState({ error: error.message })});
   }
@@ -60,7 +61,7 @@ class App extends Component {
             const newStatEntry = {
               word: this.state.currentWordInPlay,
               guessedWords: updatedSubmittedWords
-            }
+            };
             const updatedPlayerStats = [...this.state.playerStats, newStatEntry];
 
             this.setState({ 
@@ -77,14 +78,16 @@ class App extends Component {
   }
 
   startNewGame = () => {
+    this.setState({ isLoading: true });
     return getRandomFiveLetterWord()
       .then(data => {
         this.setState({
           currentWordInPlay: data.word,
           typedLetters: [],
           submittedWords: [],
-          gameOver: false
-        })
+          gameOver: false,
+          isLoading: false
+        });
       })
       .catch(error => this.setState({ error: error.message }));
   }
@@ -105,6 +108,7 @@ class App extends Component {
               gameOver={this.state.gameOver}
               error={this.state.error}
               startNewGame={this.startNewGame}
+              isLoading={this.state.isLoading}
             />
           }/>
           <Route path="/how-to-play" element={ <HowToPlay /> }/>
