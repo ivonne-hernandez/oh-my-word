@@ -7,7 +7,6 @@
 ## Game demo:
 https://user-images.githubusercontent.com/86989161/150576760-359033d0-cb83-4831-ae55-3a7d25469566.mp4
 
-
 ## Local Setup
 - `git clone` this repository
 - `cd oh-my-word`
