@@ -2,6 +2,9 @@
 
 [Oh My Word](https://oh-my-word.herokuapp.com/) is a clone of the popular game [Wordle](https://www.powerlanguage.co.uk/wordle/). In this game you have six chances to guess the secret five-letter word. Type in a word as a guess, and the game tells you which letters are or aren’t in the word. Unlike Wordle which only allows you to play one word each day, **Oh My Word** allows you to play as many times a day as you want!
 
+<img width="656" alt="Screen Shot 2022-01-18 at 10 24 54 AM" src="https://user-images.githubusercontent.com/86989161/150044771-10386bba-e220-4370-9a9b-5f5bf94e1a59.png">
+
+## Game demo:
 https://user-images.githubusercontent.com/86989161/150576760-359033d0-cb83-4831-ae55-3a7d25469566.mp4
 
 
