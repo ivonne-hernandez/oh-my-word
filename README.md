@@ -4,6 +4,9 @@
 
 <img width="656" alt="Screen Shot 2022-01-18 at 10 24 54 AM" src="https://user-images.githubusercontent.com/86989161/150044771-10386bba-e220-4370-9a9b-5f5bf94e1a59.png">
 
+## Game demo:
+https://user-images.githubusercontent.com/86989161/150576760-359033d0-cb83-4831-ae55-3a7d25469566.mp4
+
 ## Local Setup
 - `git clone` this repository
 - `cd oh-my-word`
