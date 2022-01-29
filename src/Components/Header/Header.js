@@ -22,6 +22,7 @@ const Header = ()=> {
           <div className="header-oh-my-container">OH MY</div>
           <div className="header-word-container">
             <img className="header-puzzle-w"
+              alt="puzzle piece with the letter w"
               src={puzzle}
               onClick={() => navigate("/")}
             />
