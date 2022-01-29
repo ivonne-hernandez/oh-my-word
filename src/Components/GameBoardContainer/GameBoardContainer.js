@@ -1,4 +1,4 @@
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import GameBoard from '../GameBoard/GameBoard';
 import Keyboard from '../Keyboard/Keyboard';
 import Loading from '../Loading/Loading';

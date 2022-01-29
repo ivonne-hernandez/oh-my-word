@@ -1,4 +1,4 @@
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import '../Keyboard/Keyboard.css';
 
 const Keyboard = ({ typeLetter, deleteLetter, enterGuess, submittedWords, currentWordInPlay }) => {
