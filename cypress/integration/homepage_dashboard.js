@@ -8,6 +8,10 @@ describe('Oh my word homepage test', () => {
       fixture: 'brown_valid_in_api.json'
     })
 
+    cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/solar', {
+      fixture: 'random_word.json'
+    })
+
     cy.visit('http://localhost:3000');
   });
 
