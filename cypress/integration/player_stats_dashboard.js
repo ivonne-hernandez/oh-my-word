@@ -4,6 +4,10 @@ describe('Oh my word player stats dashboard test', () => {
       fixture: 'random_word.json'
     });
 
+    cy.intercept('GET', 'https://wordsapiv1.p.rapidapi.com/words/solar', {
+      fixture: 'random_word.json'
+    })
+
     cy.visit('http://localhost:3000');
   });
 
